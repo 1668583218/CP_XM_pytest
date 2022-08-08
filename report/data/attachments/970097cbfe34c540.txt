@@ -1,0 +1,22 @@
+INFO     root:base.py:32 正在点击元素:('xpath', "//span[contains(text(), '征集录入')]")
+INFO     root:base.py:21 正在查找元素:('xpath', "//span[contains(text(), '征集录入')]")
+INFO     root:base.py:32 正在点击元素:('xpath', "//div[contains(text(), '添加征集单')]")
+INFO     root:base.py:21 正在查找元素:('xpath', "//div[contains(text(), '添加征集单')]")
+INFO     root:base.py:49 准备给元素('xpath', "//label[contains(text(), '单名称')]/following-sibling::div/div/input")输入内容:征集单1
+INFO     root:base.py:21 正在查找元素:('xpath', "//label[contains(text(), '单名称')]/following-sibling::div/div/input")
+INFO     root:base.py:53 正在给元素('xpath', "//label[contains(text(), '单名称')]/following-sibling::div/div/input")清空
+INFO     root:base.py:56 正在给元素('xpath', "//label[contains(text(), '单名称')]/following-sibling::div/div/input")输入内容:征集单1
+INFO     root:base.py:32 正在点击元素:('xpath', "//label[contains(text(), '线索名称')]/following-sibling::div/div/div/input")
+INFO     root:base.py:21 正在查找元素:('xpath', "//label[contains(text(), '线索名称')]/following-sibling::div/div/div/input")
+INFO     root:base.py:49 准备给元素('xpath', "//label[contains(text(), '线索名称')]/following-sibling::div/div/div/input")输入内容:藏品线索3
+INFO     root:base.py:21 正在查找元素:('xpath', "//label[contains(text(), '线索名称')]/following-sibling::div/div/div/input")
+INFO     root:base.py:53 正在给元素('xpath', "//label[contains(text(), '线索名称')]/following-sibling::div/div/div/input")清空
+INFO     root:base.py:56 正在给元素('xpath', "//label[contains(text(), '线索名称')]/following-sibling::div/div/div/input")输入内容:藏品线索3
+INFO     root:base.py:37 正在向下
+INFO     root:base.py:21 正在查找元素:('xpath', "//label[contains(text(), '线索名称')]/following-sibling::div/div/div/input")
+INFO     root:base.py:39 正在回车
+INFO     root:base.py:21 正在查找元素:('xpath', "//label[contains(text(), '线索名称')]/following-sibling::div/div/div/input")
+INFO     root:base.py:32 正在点击元素:('xpath', "(//span[contains(text(), '保存')])[1]")
+INFO     root:base.py:21 正在查找元素:('xpath', "(//span[contains(text(), '保存')])[1]")
+INFO     root:base.py:80 正在获取元素('xpath', "//p[contains(@class, 'el-message__content')]")的文本
+INFO     root:base.py:21 正在查找元素:('xpath', "//p[contains(@class, 'el-message__content')]")

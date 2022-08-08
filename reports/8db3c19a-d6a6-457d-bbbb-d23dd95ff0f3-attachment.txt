@@ -1,0 +1,10 @@
+INFO     root:base.py:32 正在点击元素:('xpath', "//span[contains(text(), '已征集')]")
+INFO     root:base.py:21 正在查找元素:('xpath', "//span[contains(text(), '已征集')]")
+INFO     root:base.py:49 准备给元素('xpath', "//input[@placeholder='藏品名称']")输入内容:藏品03
+INFO     root:base.py:21 正在查找元素:('xpath', "//input[@placeholder='藏品名称']")
+INFO     root:base.py:53 正在给元素('xpath', "//input[@placeholder='藏品名称']")清空
+INFO     root:base.py:56 正在给元素('xpath', "//input[@placeholder='藏品名称']")输入内容:藏品03
+INFO     root:base.py:32 正在点击元素:('xpath', "//span[contains(text(), '查询')]")
+INFO     root:base.py:21 正在查找元素:('xpath', "//span[contains(text(), '查询')]")
+INFO     root:base.py:80 正在获取元素('xpath', '//div[3]/table/tbody/tr[1]/td[4]/div')的文本
+INFO     root:base.py:21 正在查找元素:('xpath', '//div[3]/table/tbody/tr[1]/td[4]/div')

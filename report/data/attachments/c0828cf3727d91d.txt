@@ -1,0 +1,8 @@
+INFO     root:base.py:32 正在点击元素:('xpath', "//span[contains(text(), '导出')]")
+INFO     root:base.py:21 正在查找元素:('xpath', "//span[contains(text(), '导出')]")
+INFO     root:base.py:32 正在点击元素:('xpath', "((//span[contains(text(), '选择导出的列')])[1]/parent::label/span)[1]")
+INFO     root:base.py:21 正在查找元素:('xpath', "((//span[contains(text(), '选择导出的列')])[1]/parent::label/span)[1]")
+INFO     root:base.py:32 正在点击元素:('xpath', "(//button[contains(@class, 'el-transfer__button')])[2]")
+INFO     root:base.py:21 正在查找元素:('xpath', "(//button[contains(@class, 'el-transfer__button')])[2]")
+INFO     root:base.py:32 正在点击元素:('xpath', "(//span[contains(text(), '导出')])[5]")
+INFO     root:base.py:21 正在查找元素:('xpath', "(//span[contains(text(), '导出')])[5]")
