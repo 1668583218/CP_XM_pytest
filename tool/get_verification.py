@@ -1,4 +1,6 @@
 import json
+
+import ddddocr
 import requests
 import base64
 
@@ -9,6 +11,14 @@ class YdmVerify(object):
     _headers = {
         'Content-Type': 'application/json'
     }
+
+    def dddd_ocr(self, image):
+        ocr = ddddocr.DdddOcr(old=True)
+        with open(image, 'rb') as f:
+            image = f.read()
+        res = ocr.classification(image)[0:3]
+        new_res = res.replace('x', '*')
+        return eval(new_res)
 
     def common_verify(self, image, verify_type="50100"):
         # 数英汉字类型
@@ -38,4 +48,3 @@ class YdmVerify(object):
         resp = requests.post(self._custom_url, headers=self._headers, data=json.dumps(payload))
         # print(resp.text)
         return resp.json()['data']['data']
-

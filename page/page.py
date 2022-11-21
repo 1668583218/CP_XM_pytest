@@ -13,6 +13,10 @@ class PageLogin(Base):
         self.base_input(page.login_pwd, pwd)
 
     # 给验证码截图
+    def page_click_verification(self):
+        return self.base_click(page.verification_png)
+
+    # 给验证码截图
     def page_screenshot_verification_png(self):
         return self.base_get_element_screenshot(page.verification_png)
 

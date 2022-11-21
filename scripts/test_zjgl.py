@@ -21,10 +21,15 @@ class TestLogin():
         cls.login.page_input_username("shuirr")
         # 输入密码
         cls.login.page_input_password("ok111111")
+        # 先刷新下验证码
+        cls.login.page_click_verification()
         # 验证码截图
         png_file = cls.login.page_screenshot_verification_png()
-        # 调用接口识别验证码
-        verification_code = YdmVerify().common_verify(png_file)
+        sleep(1)
+        # 调用本地验证码识别,不一定能成功
+        verification_code = YdmVerify().dddd_ocr(png_file)
+        # # 调用付费接口识别验证码 备用，成功率高
+        # verification_code = YdmVerify().common_verify(png_file)
         # 输入验证码
         cls.login.page_input_ver(verification_code)
         # 点击登录按钮
