@@ -1,13 +1,14 @@
 # 导包
+import os,sys
+sys.path.append(os.getcwd())
 from time import sleep
-
 import pytest
-
 from base.get_driver import GetDriver
 from page.page import PageLogin
 from tool.export import get_filename
+from tool.get_verification import YdmVerify
 
-# 新建测试类 并 继承
+# 新建测试类并继承
 class TestLogin():
     login = None
 
@@ -20,8 +21,12 @@ class TestLogin():
         cls.login.page_input_username("shuirr")
         # 输入密码
         cls.login.page_input_password("ok111111")
-        # # 输入验证码
-        # cls.login.page_input_ver("888")
+        # 验证码截图
+        png_file = cls.login.page_screenshot_verification_png()
+        # 调用接口识别验证码
+        verification_code = YdmVerify().common_verify(png_file)
+        # 输入验证码
+        cls.login.page_input_ver(verification_code)
         # 点击登录按钮
         cls.login.page_click_login_btn()
         # 点击藏品管理
@@ -37,12 +42,14 @@ class TestLogin():
         # all_handles = GetDriver().get_driver().window_handles
         # print(all_handles)
 
-    # tearDown
-    @classmethod
+    # teardown
     def teardown_class(cls):
         sleep(3)
         # 关闭 driver驱动对象
         GetDriver().quit_driver()
+
+    def test001(self):
+        print("Test")
 
     # 线索录入
     # 用例001-003

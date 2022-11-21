@@ -12,9 +12,13 @@ class PageLogin(Base):
     def page_input_password(self, pwd):
         self.base_input(page.login_pwd, pwd)
 
+    # 给验证码截图
+    def page_screenshot_verification_png(self):
+        return self.base_get_element_screenshot(page.verification_png)
+
     # 输入验证码
-    # def page_input_ver(self,ver):
-    #     self.base_input(page.login_ver,ver)
+    def page_input_ver(self,ver):
+        self.base_input(page.login_ver,ver)
 
     # 点击登录按钮
     def page_click_login_btn(self):

@@ -8,8 +8,10 @@ url = "http://prodplus.okaygis.com:8880/#/login"
 login_username = By.XPATH, "//label[contains(text(), '登录名')]/following-sibling::div/div/input"
 # 密码
 login_pwd = By.XPATH, "//label[contains(text(), '密码')]/following-sibling::div/div/input"
+# 验证码图片
+verification_png = By.XPATH, "//img"
 # 验证码
-# login_ver = By.XPATH, "//input[contains(@placeholder, '请输入验证码')]"
+login_ver = By.XPATH, "//input[contains(@placeholder, '请输入验证码')]"
 # 登录按钮
 login_btn = By.XPATH, "//span[contains(text(), '登录')]"
 

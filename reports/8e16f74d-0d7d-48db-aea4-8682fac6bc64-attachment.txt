@@ -1,9 +1,0 @@
-INFO     root:base.py:32 正在点击元素:('xpath', "(//span[contains(@class, 'el-checkbox__input')])[1]")
-INFO     root:base.py:21 正在查找元素:('xpath', "(//span[contains(@class, 'el-checkbox__input')])[1]")
-INFO     root:base.py:32 正在点击元素:('xpath', "(//button/span[contains(text(), '关联合同')])[1]")
-INFO     root:base.py:21 正在查找元素:('xpath', "(//button/span[contains(text(), '关联合同')])[1]")
-INFO     root:base.py:60 准备给元素('xpath', "//input[contains(@type, 'file')]")输入内容:C:\Users\caojingwei\Desktop\合同.png
-INFO     root:base.py:21 正在查找元素:('xpath', "//input[contains(@type, 'file')]")
-INFO     root:base.py:64 正在给元素('xpath', "//input[contains(@type, 'file')]")输入内容:C:\Users\caojingwei\Desktop\合同.png
-INFO     root:base.py:32 正在点击元素:('xpath', "//button[@class='el-dialog__headerbtn']")
-INFO     root:base.py:21 正在查找元素:('xpath', "//button[@class='el-dialog__headerbtn']")

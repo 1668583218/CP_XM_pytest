@@ -86,6 +86,18 @@ class Base:
         log.info('正在获取元素{}的value值'.format(loc))
         return self.base_find_element(loc, timeout=3).get_attribute('value')
 
+    # 单个元素截图
+    def base_get_element_screenshot(self, loc):
+        log.info('先获取元素{}的src名称'.format(loc))
+        scr_name = self.base_find_element(loc).get_attribute('src')
+        png_name = ''.join([x for x in scr_name if x.isdigit()])
+        log.info('名称为{}'.format(png_name))
+        png_file = './image/verification_{}.png'.format(png_name)
+        log.info('正在给元素{}截图'.format(loc))
+        self.base_find_element(loc).screenshot(png_file)
+        log.info('截图成功！')
+        return png_file
+
     # 截图方法
     def base_get_image(self):
         log.info('正在截图')
