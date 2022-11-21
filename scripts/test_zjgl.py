@@ -53,9 +53,6 @@ class TestLogin():
         # 关闭 driver驱动对象
         GetDriver().quit_driver()
 
-    def test001(self):
-        print("Test")
-
     # 线索录入
     # 用例001-003
     # 新增-测试方法
