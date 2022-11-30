@@ -1,6 +1,3 @@
-# 导包
-import os,sys
-sys.path.append(os.getcwd())
 from time import sleep
 import pytest
 from base.get_driver import GetDriver
