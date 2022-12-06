@@ -3,7 +3,12 @@ import pytest
 from base.get_driver import GetDriver
 from page.page import PageLogin
 from tool.export import get_filename
+from tool.get_log import GetLogger
 from tool.get_verification import YdmVerify
+from tool.read_yaml import read_yaml
+
+log = GetLogger.get_logger()
+
 
 # 新建测试类并继承
 class TestLogin():
@@ -14,19 +19,23 @@ class TestLogin():
         # 实例化 获取页面对象 PageLogin
         cls.login = PageLogin(GetDriver().get_driver())
         # 先登录
+        account = read_yaml('account.yaml')
+        username = account[0][0]
+        password = account[0][1]
+        token = account[0][2]
         # 输入用户名
-        cls.login.page_input_username("shuirr")
+        cls.login.page_input_username(username)
         # 输入密码
-        cls.login.page_input_password("ok111111")
+        cls.login.page_input_password(password)
         # 先刷新下验证码
         cls.login.page_click_verification()
         # 验证码截图
         png_file = cls.login.page_screenshot_verification_png()
         sleep(1)
-        # 调用本地验证码识别,不一定能成功
-        verification_code = YdmVerify().dddd_ocr(png_file)
-        # # 调用付费接口识别验证码 备用，成功率高
-        # verification_code = YdmVerify().common_verify(png_file)
+        # # 调用本地验证码识别,不一定能成功
+        # verification_code = YdmVerify().dddd_ocr(png_file)
+        # 调用付费接口识别验证码 备用，成功率高
+        verification_code = YdmVerify().common_verify(png_file, token)
         # 输入验证码
         cls.login.page_input_ver(verification_code)
         # 点击登录按钮
@@ -66,9 +75,11 @@ class TestLogin():
             print(msg)
             # 断言
             assert msg == expect_result
-        except:
+        except Exception as e:
+            log.error('断言出错，错误原因：{}'.format(e))
             # 截图
             self.login.page_get_img()
+            raise
 
     # 用例004
     # 导入-测试方法
