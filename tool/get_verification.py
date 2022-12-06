@@ -7,7 +7,6 @@ import base64
 
 class YdmVerify(object):
     _custom_url = "https://www.jfbym.com/api/YmServer/customApi"
-    _token = "xnGNrmLS+ZrZaYX5mJ7WL03MUfB2CsBsTOGIYIAd57A"
     _headers = {
         'Content-Type': 'application/json'
     }
@@ -20,7 +19,7 @@ class YdmVerify(object):
         new_res = res.replace('x', '*')
         return eval(new_res)
 
-    def common_verify(self, image, verify_type="50100"):
+    def common_verify(self, image, token, verify_type="50100"):
         # 数英汉字类型
         # 通用数英1-4位 10110
         # 通用数英5-8位 10111
@@ -42,7 +41,7 @@ class YdmVerify(object):
         # 定制-计算题 cni 452
         payload = {
             "image": base64.b64encode(open(image, "rb").read()).decode(),
-            "token": self._token,
+            "token": token,
             "type": verify_type
         }
         resp = requests.post(self._custom_url, headers=self._headers, data=json.dumps(payload))
