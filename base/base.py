@@ -1,10 +1,10 @@
+import allure
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support.select import Select
 from selenium.webdriver.support.wait import WebDriverWait
 from tool.get_log import GetLogger
 import time
 from selenium.webdriver.common.keys import Keys
-
 
 log = GetLogger.get_logger()
 
@@ -98,10 +98,22 @@ class Base:
         log.info('截图成功！')
         return png_file
 
+    # 将图片写入aller报告
+    def base_write_img(self, png_file):
+        # 1.获取图片流
+        log.error('图片正在写入aller报告')
+        with open(png_file, 'rb') as f:
+            # 2.调用aller的方法
+            allure.attach("错误原因：", f.read(), allure.attachment_type.PNG)
+        log.error('写入完成')
+
     # 截图方法
     def base_get_image(self):
-        log.info('正在截图')
-        self.driver.get_screenshot_as_file("../image/{}.png".format(time.strftime("%Y_%m_%d %H_%M_%S")))
+        log.error('断言出错！正在截图')
+        png_file = "../image/{}.png".format(time.strftime("%Y_%m_%d %H_%M_%S"))
+        self.driver.get_screenshot_as_file(png_file)
+        log.error('截图完成，名称为{}'.format(png_file))
+        self.base_write_img(png_file)
 
     # 封装判断元素是否存在
     def base_if_exist(self, loc):
