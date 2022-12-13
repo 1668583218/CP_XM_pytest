@@ -651,7 +651,7 @@ class PageLogin(Base):
     # 批量指派-组合业务方法
     def page_batch_assigned(self):
         log.info('正在调用批量指派-组合业务方法')
-        self.page_click_all_btn()
+        self.page_click_list1_select_btn()
         self.page_click_batch_assigned_btn()
         sleep(1)
         self.page_click_yes_btn()
@@ -660,7 +660,7 @@ class PageLogin(Base):
     # 废弃-组合业务方法
     def page_list_abandon(self, cause):
         log.info('正在调用废弃-组合业务方法,原因：{}'.format(cause))
-        self.page_click_all_btn()
+        self.page_click_list1_select_btn()
         self.page_click_abandon_btn()
         self.page_input_cause(cause)
         self.page_click_confirm_btn()
@@ -701,7 +701,7 @@ class PageLogin(Base):
     # 终止-组合业务方法
     def page_end(self, c_time, cause):
         log.info('正在调用终止-组合业务方法,终止时间：{}，原因：{}'.format(c_time, cause))
-        self.page_click_all_btn()
+        self.page_click_list1_select_btn()
         self.page_click_end_btn()
         self.page_input_c_time(c_time)
         sleep(1)
@@ -729,7 +729,7 @@ class PageLogin(Base):
     # 完成跟踪-组合业务方法
     def page_trace_over(self):
         log.info('正在调用完成跟踪-组合业务方法')
-        self.page_click_all_btn()
+        self.page_click_list1_select_btn()
         self.page_click_trace_over_btn()
         sleep(1)
         self.page_click_yes_btn()
@@ -784,25 +784,25 @@ class PageLogin(Base):
     # 删除-组合业务方法
     def page_collection_delete(self):
         log.info('正在调用删除-组合业务方法')
-        self.page_click_all_btn()
+        self.page_click_list1_select_btn()
         self.page_click_delete_btn()
         sleep(1)
         self.page_click_yes_btn()
         sleep(1)
 
-    # 提交确认征集-组合业务方法
+    # 提交征集-组合业务方法
     def page_submit_collect(self):
-        log.info('正在调用提交确认征集-组合业务方法')
-        self.page_click_all_btn()
+        log.info('正在调用提交征集-组合业务方法')
+        self.page_click_list1_select_btn()
         self.page_click_submit_collect_btn()
         sleep(1)
         self.page_click_yes_btn()
         sleep(1)
 
-    # 征集终止-组合业务方法
+    # 终止-组合业务方法
     def page_collect_over(self, cause):
-        log.info('正在调用征集终止-组合业务方法,原因：{}'.format(cause))
-        self.page_click_all_btn()
+        log.info('正在调用终止-组合业务方法,原因：{}'.format(cause))
+        self.page_click_list1_select_btn()
         self.page_click_end_btn()
         self.page_input_cause(cause)
         self.page_click_confirm_btn()
@@ -887,7 +887,7 @@ class PageLogin(Base):
     # 提交确认征集-组合业务方法
     def page_submit_confirm_collect(self):
         log.info('正在调用提交确认征集-组合业务方法')
-        self.page_click_all_btn()
+        self.page_click_list1_select_btn()
         self.page_click_submit_confirm_collect_btn()
         sleep(1)
         self.page_click_yes_btn()
@@ -896,7 +896,7 @@ class PageLogin(Base):
     # 关联合同-组合业务方法
     def page_association_rules(self, file_name_path):
         log.info('正在调用关联合同-组合业务方法,文件名：{}'.format(file_name_path))
-        self.page_click_all_btn()
+        self.page_click_list1_select_btn()
         self.page_click_association_rules_btn()
         sleep(1)
         self.page_input_select_file_btn(file_name_path)
@@ -916,7 +916,7 @@ class PageLogin(Base):
     # 提交拨库-组合业务方法
     def page_submit_warehouse(self):
         log.info('正在调用提交拨库-组合业务方法')
-        self.page_click_all_btn()
+        self.page_click_list1_select_btn()
         self.page_click_submit_warehouse_btn()
         sleep(1)
         self.page_click_yes_btn()
@@ -925,7 +925,7 @@ class PageLogin(Base):
     # 拨库-组合业务方法
     def page_warehouse(self):
         log.info('正在调用拨库-组合业务方法')
-        self.page_click_all_btn()
+        self.page_click_list1_select_btn()
         self.page_click_warehouse_btn()
         # self.page_input_aim_warehouse(aim_warehouse)
         # self.page_input_collectible_classify(collectible_classify)
