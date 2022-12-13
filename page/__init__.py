@@ -34,6 +34,8 @@ zjz = By.XPATH, "//span[contains(text(), '征集中')]"
 qrzj = By.XPATH, "//span[contains(text(), '确认征集')]"
 # 拨库管理
 bkgl = By.XPATH, "//span[contains(text(), '拨库管理')]"
+# 页面数据数
+date_list = By.XPATH, "//span[contains(@class, 'el-pagination__total')]"
 
 """以下为二级界面元素配置信息"""
 # 已指派
@@ -163,6 +165,8 @@ two_confirm_btn = By.XPATH, "(//span[contains(text(), '确定')])[2]"
 xs_log = By.XPATH, "(//textarea[contains(@class, 'el-textarea__inner')])[2]"
 # 添加按钮
 log_add_btn = By.XPATH, "//span[contains(text(), '添加')]"
+# 暂无跟踪日志时的元素
+not_log_loc = By.XPATH, "//div[contains(@class,'timeLine')]/ul/div"
 
 """以下为征集单新增、编辑界面元素配置信息"""
 # 单名称输入框
