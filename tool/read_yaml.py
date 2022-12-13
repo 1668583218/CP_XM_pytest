@@ -11,6 +11,5 @@ def read_yaml(filename):
         for datas in yaml.safe_load(f).values():
             arr.append(tuple(datas.values()))
     # 返回结果
-    print(arr)
     return arr
 
