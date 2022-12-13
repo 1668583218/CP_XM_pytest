@@ -369,6 +369,10 @@ class PageLogin(Base):
         log.info('线索日志界面-点击添加按钮')
         self.base_click(page.log_add_btn)
 
+    # 线索日志界面-判断暂无跟踪信息元素是否存在
+    def page_if_exist_not_log(self):
+        return self.base_if_exist(page.not_log_loc)
+
     # 征集单界面-输入单名称
     def page_input_form_name(self, form_name):
         log.info('征集单界面-输入单名称:{}'.format(form_name))
@@ -380,6 +384,7 @@ class PageLogin(Base):
         self.base_click(page.form_xs_name)
         self.base_input(page.form_xs_name, xs_name)
         self.base_keys(page.form_xs_name)
+        sleep(1)
 
     # 藏品编辑界面-点击并输入所属征集单并选择下拉框第一个
     def page_input_for_form(self, for_form):
@@ -387,6 +392,7 @@ class PageLogin(Base):
         self.base_click(page.for_form)
         self.base_input(page.for_form, for_form)
         self.base_keys(page.for_form)
+        sleep(1)
 
     # 藏品编辑界面-输入藏品名称
     def page_input_add_collection_name(self, add_collection_name):
@@ -660,7 +666,6 @@ class PageLogin(Base):
         self.page_click_confirm_btn()
         sleep(1)
         self.page_click_yes_btn()
-        self.page_click_reset_btn()
         sleep(1)
 
     # 导出-组合业务方法
@@ -671,7 +676,7 @@ class PageLogin(Base):
         self.page_click_input_select_all()
         self.page_click_input_right_button()
         self.page_click_two_export_btn()
-        sleep(5)
+        sleep(10)
 
     # 查看线索-组合业务方法
     def page_list_check(self):
@@ -689,6 +694,7 @@ class PageLogin(Base):
         self.page_input_select_file_btn(file)
         sleep(1)
         self.page_click_two_import_btn()
+        sleep(1)
         self.page_click_close_btn()
         sleep(1)
 
@@ -704,7 +710,6 @@ class PageLogin(Base):
         self.page_click_confirm_btn()
         sleep(1)
         self.page_click_yes_btn()
-        self.page_click_reset_btn()
         sleep(1)
 
     # 填写日志-组合业务方法
@@ -716,9 +721,10 @@ class PageLogin(Base):
         self.page_click_time_now_btn()
         self.page_input_xs_log(xs_log)
         self.page_click_log_add_btn()
+        msg = self.page_if_exist_not_log()
         self.page_click_close_btn()
-        self.page_click_reset_btn()
         sleep(1)
+        return msg
 
     # 完成跟踪-组合业务方法
     def page_trace_over(self):
@@ -731,7 +737,7 @@ class PageLogin(Base):
 
     # 新增征集单-组合业务方法
     def page_form_add(self, form_name, xs_name):
-        log.info('正在调用新增征集单-组合业务方法,征集单名：{}，线索名：{}'.format(form_name,xs_name))
+        log.info('正在调用新增征集单-组合业务方法,征集单名：{}，线索名：{}'.format(form_name, xs_name))
         self.page_click_add_zjd_btn()
         self.page_input_form_name(form_name)
         self.page_input_form_xs_name(xs_name)
@@ -744,6 +750,7 @@ class PageLogin(Base):
         self.page_click_add_btn()
         self.page_input_for_form(for_form)
         self.page_input_add_collection_name(add_collection_name)
+        sleep(1)
         self.page_click_confirm_btn()
         self.page_click_close_btn()
         sleep(1)
@@ -783,9 +790,9 @@ class PageLogin(Base):
         self.page_click_yes_btn()
         sleep(1)
 
-    # 提交征集-组合业务方法
+    # 提交确认征集-组合业务方法
     def page_submit_collect(self):
-        log.info('正在调用提交征集-组合业务方法')
+        log.info('正在调用提交确认征集-组合业务方法')
         self.page_click_all_btn()
         self.page_click_submit_collect_btn()
         sleep(1)
@@ -803,7 +810,6 @@ class PageLogin(Base):
         self.page_click_yes_btn()
         self.page_click_two_confirm_btn()
         self.page_click_close_btn()
-        self.page_click_reset_btn()
         sleep(1)
 
     # 藏品鉴定-组合业务方法
