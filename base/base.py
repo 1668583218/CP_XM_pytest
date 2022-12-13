@@ -23,6 +23,26 @@ class Base:
                              timeout=timeout,
                              poll_frequency=poll).until(lambda x: x.find_element(*loc))
 
+    #
+    # # 查找一组元素方法 (提供：点击、输入、获取文本)使用
+    # def base_find_elements(self, loc, timeout=30, poll=0.5):
+    #     log.info('正在查找元素组:{}'.format(loc))
+    #     return WebDriverWait(self.driver,
+    #                          timeout=timeout,
+    #                          poll_frequency=poll).until(lambda x: x.find_elements(*loc))
+    #
+    # # 点击下拉框内的元素
+    # def base_click_select(self, loc, value):
+    #     log.info('正在查找并点击下拉框内的元素')
+    #     list_loc = self.base_find_elements(loc)
+    #     for i in list_loc:
+    #         log.info(i.text)
+    #         if value in i.text:
+    #             i.click()
+    #             log.info('找到了，点击完成')
+    #             break
+    #     log.error('没找到')
+
     # # 二次定位(用于下拉框)
     # def base_twice_find_element(self, loc, loc_son):
     #     return self.base_find_element(loc).base_find_element(loc_son)
@@ -103,14 +123,15 @@ class Base:
         # 1.获取图片流
         log.error('图片正在写入aller报告')
         with open(png_file, 'rb') as f:
-            # 2.调用aller的方法
-            allure.attach("错误原因：", f.read(), allure.attachment_type.PNG)
+            file = f.read()
+        # 2.调用aller的方法
+        allure.attach(file, "错误截图", allure.attachment_type.PNG)
         log.error('写入完成')
 
     # 截图方法
     def base_get_image(self):
         log.error('断言出错！正在截图')
-        png_file = "../image/{}.png".format(time.strftime("%Y_%m_%d %H_%M_%S"))
+        png_file = "./image/{}.png".format(time.strftime("%Y_%m_%d %H_%M_%S"))
         self.driver.get_screenshot_as_file(png_file)
         log.error('截图完成，名称为{}'.format(png_file))
         self.base_write_img(png_file)
