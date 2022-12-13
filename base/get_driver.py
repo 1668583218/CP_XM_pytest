@@ -4,6 +4,7 @@ from tool.get_log import GetLogger
 
 log = GetLogger.get_logger()
 
+
 class GetDriver:
     # 设置类属性
     driver = None
@@ -12,21 +13,36 @@ class GetDriver:
     @classmethod
     def get_driver(cls):
         if cls.driver is None:
-            # # 设置谷歌对象
-            # log.info('设置谷歌对象-无头浏览器')
-            # chrome_options = webdriver.ChromeOptions()
-            # chrome_options.add_argument("--headless")
-            # # 设置浏览器分辨率，opt会导致maximize最大化失败
-            # log.info('设置浏览器分辨率')
-            # chrome_options.add_argument('--window-size=1920,1080')
-            # # 实例化浏览器
-            # log.info('实例化浏览器')
-            # cls.driver = webdriver.Chrome(chrome_options=chrome_options)
-            log.info('实例化driver对象')
-            cls.driver = webdriver.Chrome()
-            # 最大化
-            log.info('最大化浏览器')
-            cls.driver.maximize_window()
+            # 设置谷歌对象
+            chrome_options = webdriver.ChromeOptions()
+            log.info('设置谷歌对象-无头浏览器')
+            chrome_options.add_argument("--headless")
+            # 尝试解决无头浏览器下无法下载文件
+            prefs = {
+                # 下载目录
+                'download.default_directory': 'C:\\Users\\caojingwei\\Downloads',
+                # 设置为0，禁止弹出窗口
+                'profile.default_content_settings.popups': 0,
+                'download.prompt_for_download': False,
+                'download.directory_upgrade': True,
+                'safebrowsing.enabled': False,
+                'safebrowsing.disable_download_protection': True,
+                'safebrowsing_for_trusted_sources_enabled': False
+            }
+            chrome_options.add_experimental_option('prefs', prefs)
+            # 更改加载策略，缩短加载时间
+            chrome_options.page_load_strategy = 'eager'
+            # 设置浏览器分辨率，opt会导致maximize最大化失败
+            log.info('设置浏览器分辨率')
+            chrome_options.add_argument('--window-size=2560,1600')
+            # 实例化浏览器
+            log.info('实例化浏览器')
+            cls.driver = webdriver.Chrome(chrome_options=chrome_options)
+            # log.info('实例化driver对象')
+            # cls.driver = webdriver.Chrome()
+            # # 最大化
+            # log.info('最大化浏览器')
+            # cls.driver.maximize_window()
             # 打开浏览器
             log.info('打开网页')
             cls.driver.get(page.url)
